@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# transcription artifacts
+*.srt
+*.vtt
+*.tsv
+*.speakers.txt
+smoke.wav
+Voice *.txt
+Voice *.json
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# models / weights (large)
+models/
+*.pt
