@@ -1,0 +1,17 @@
+[SPEAKER_00 00:00:00 | RU]
+Анна, ты тикеты в Jira завела? Да, по фидбеку, остальное в бэклог.
+
+[SPEAKER_01 00:00:06 | EN]
+Okay sounds good but are we ready for the App Store review?
+
+[SPEAKER_00 00:00:12 | RU]
+Да.
+
+[SPEAKER_01 00:00:14 | EN]
+We need the catalog for hospitals and hotels. Let's ship the beta on Friday.
+
+[SPEAKER_02 00:00:28 | RU]
+Я прогнал QA, баги в чате и в онбординге.
+
+[SPEAKER_02 00:00:34 | EN]
+I ran QA and filed the tickets. Ok.
