@@ -1,0 +1,5 @@
+*
+!whisper_core
+!worker
+**/__pycache__
+**/*.pyc

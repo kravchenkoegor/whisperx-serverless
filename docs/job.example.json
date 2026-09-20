@@ -1,0 +1,16 @@
+{
+  "input": {
+    "task": "transcribe",
+    "recording_id": "test-1",
+    "audio_key": "recordings/test-1/audio.m4a",
+    "diarize": true,
+    "min_speakers": 2,
+    "max_speakers": 4,
+    "passes": [
+      { "language": "ru", "prompt": "Еженедельный созвон команды. Анна, Борис и Майкл.", "align": true },
+      { "language": "en", "prompt": "Weekly team sync. Anna, Boris and Michael.", "align": true }
+    ],
+    "merge": { "prompt": "Sprint sync команды, говорим на русском и английском. Anna, Boris and Michael.", "thresholds": {} },
+    "batch_size": 4
+  }
+}
