@@ -22,10 +22,12 @@ import json
 import re
 from pathlib import Path
 
+from whisper_core.text import collapse_repeats, fmt_ts
+
 HERE = Path(__file__).resolve().parent
 
 # ---- CONFIG ----------------------------------------------------------------------
-STEM = "meeting"                                 # base name, without .en / .ko
+STEM = "Voice 260604_080459"                     # base name, without .en / .ko
 EN_JSON = HERE / f"{STEM}.en.json"
 KO_JSON = HERE / f"{STEM}.ko.json"
 PROMPT_FILE = HERE / "prompts/korean_meeting.txt"  # to detect prompt-echo hallucinations
@@ -39,40 +41,6 @@ KO_MAX_EN_OVERLAP = 0.50    # drop KO seg if it overlaps English regions by more
 
 HANGUL = re.compile(r"[가-힣]")
 WORD = re.compile(r"[a-zA-Z]+")
-
-
-def fmt_ts(seconds) -> str:
-    if seconds is None:
-        seconds = 0.0
-    t = int(round(seconds * 1000))
-    return f"{t // 3600000:02d}:{(t // 60000) % 60:02d}:{(t // 1000) % 60:02d}"
-
-
-def collapse_repeats(text: str, min_repeats: int = 3) -> str:
-    """Collapse a phrase (>=2 words) immediately repeated >=min_repeats times to one."""
-    words = text.split()
-    n = len(words)
-    if n < 2 * min_repeats:
-        return text
-    out: list[str] = []
-    i = 0
-    while i < n:
-        done = False
-        for p in range((n - i) // min_repeats, 1, -1):
-            block = words[i:i + p]
-            reps, j = 1, i + p
-            while j + p <= n and words[j:j + p] == block:
-                reps += 1
-                j += p
-            if reps >= min_repeats:
-                out.extend(block)
-                i = j
-                done = True
-                break
-        if not done:
-            out.append(words[i])
-            i += 1
-    return " ".join(out)
 
 
 def hangul_ratio(text: str) -> float:
@@ -164,7 +132,7 @@ def main() -> int:
     n_en = sum(1 for s in chosen if s["lang"] == "EN")
     n_ko = sum(1 for s in chosen if s["lang"] == "KO")
     print(f"[✓] {OUT.name}: {n_en} English + {n_ko} Korean segments, "
-          f"{len([l for l in lines if l.startswith('[')])} turns")
+          f"{len([line for line in lines if line.startswith('[')])} turns")
     return 0
 
 
