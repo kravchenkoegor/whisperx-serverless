@@ -1,4 +1,4 @@
-# whisper-serverless
+# whisperx-serverless
 
 Meeting transcription with speaker labels for mixed Russian/English recordings, running on a
 GPU that costs **$0 while idle**.
@@ -9,6 +9,20 @@ recordings, edits prompts, starts jobs and shows the results. There is no databa
 always-on server.
 
 [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+
+![Recording page: job card with per-stage timings and the merged transcript](docs/screenshots/recording.png)
+
+The recording page after a run on a local RTX 3070 Ti: a 3-second test clip, two language passes
+and the merge. The job card is the status document the worker writes to R2, rendered as is.
+
+<details>
+<summary>More screenshots: the run form and the files of a recording</summary>
+
+![New recording form: language passes, prompts, diarization and merge options](docs/screenshots/new-recording.png)
+
+![Files of a recording as stored in R2](docs/screenshots/files.png)
+
+</details>
 
 ## Architecture
 
