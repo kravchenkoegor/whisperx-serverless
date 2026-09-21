@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-muted: #eef0f3;
+  --line: #d9dde3;
+  --fg: #15181e;
+  --fg-muted: #5a6270;
+  --accent: #1f4fd8;
+  --accent-hover: #1a43b8;
+  --accent-fg: #ffffff;
+  --accent-soft: #e4ebfd;
+  --ok: #17794a;
+  --ok-soft: #dff3e8;
+  --warn: #8f5200;
+  --warn-soft: #fbedd3;
+  --danger: #b3261e;
+  --danger-hover: #931f18;
+  --danger-soft: #fbe3e1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1014;
+    --surface: #161920;
+    --surface-muted: #1e222b;
+    --line: #2c323d;
+    --fg: #e7e9ee;
+    --fg-muted: #98a1b0;
+    --accent: #7aa2ff;
+    --accent-hover: #9ab8ff;
+    --accent-fg: #0b1020;
+    --accent-soft: #1c2a4d;
+    --ok: #5fd39a;
+    --ok-soft: #12301f;
+    --warn: #f0b95b;
+    --warn-soft: #3a2a0c;
+    --danger: #ff8a80;
+    --danger-hover: #ffaaa3;
+    --danger-soft: #3d1614;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-danger-soft: var(--danger-soft);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-fg font-sans text-sm leading-normal antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  h1 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  h2 {
+    @apply text-base font-semibold;
+  }
+
+  h3 {
+    @apply text-sm font-semibold;
+  }
+
+  summary {
+    @apply cursor-pointer select-none;
+  }
+
+  progress {
+    accent-color: var(--accent);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg border border-line bg-surface p-4;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-line bg-surface px-3 py-1.5 text-sm font-medium text-fg transition-colors hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply border-transparent bg-accent text-accent-fg hover:bg-accent-hover;
+  }
+
+  .btn-danger {
+    @apply border-transparent bg-danger text-accent-fg hover:bg-danger-hover;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-line bg-surface px-2.5 py-1.5 text-sm text-fg placeholder:text-fg-muted disabled:opacity-60;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-medium text-fg-muted;
+  }
+
+  .hint {
+    @apply text-xs text-fg-muted;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded border border-line bg-surface-muted px-1.5 py-0.5 text-xs font-medium text-fg-muted;
+  }
+
+  .badge-accent {
+    @apply border-transparent bg-accent-soft text-accent;
+  }
+
+  .badge-ok {
+    @apply border-transparent bg-ok-soft text-ok;
+  }
+
+  .badge-warn {
+    @apply border-transparent bg-warn-soft text-warn;
+  }
+
+  .badge-danger {
+    @apply border-transparent bg-danger-soft text-danger;
+  }
+
+  .notice {
+    @apply rounded-md border border-line bg-surface-muted px-3 py-2 text-sm;
+  }
+
+  .notice-danger {
+    @apply border-transparent bg-danger-soft text-danger;
+  }
+
+  .notice-warn {
+    @apply border-transparent bg-warn-soft text-warn;
+  }
+
+  .link {
+    @apply text-accent underline-offset-2 hover:underline;
+  }
+
+  .checkbox-row {
+    @apply flex items-center gap-2 text-sm;
+  }
+}
