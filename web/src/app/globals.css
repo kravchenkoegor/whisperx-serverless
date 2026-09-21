@@ -6,6 +6,7 @@
   --surface: #ffffff;
   --surface-muted: #eef0f3;
   --line: #d9dde3;
+  --line-strong: #7d8695;
   --fg: #15181e;
   --fg-muted: #5a6270;
   --accent: #1f4fd8;
@@ -27,6 +28,7 @@
     --surface: #161920;
     --surface-muted: #1e222b;
     --line: #2c323d;
+    --line-strong: #646d7e;
     --fg: #e7e9ee;
     --fg-muted: #98a1b0;
     --accent: #7aa2ff;
@@ -48,6 +50,7 @@
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-accent: var(--accent);
@@ -67,7 +70,7 @@
 
 @layer base {
   body {
-    @apply bg-bg text-fg font-sans text-sm leading-normal antialiased;
+    @apply bg-bg text-fg font-sans text-base leading-normal antialiased;
   }
 
   :focus-visible {
@@ -76,19 +79,36 @@
   }
 
   h1 {
-    @apply text-xl font-semibold tracking-tight;
+    @apply text-2xl font-semibold tracking-tight;
   }
 
   h2 {
-    @apply text-base font-semibold;
+    @apply text-lg font-semibold;
   }
 
   h3 {
-    @apply text-sm font-semibold;
+    @apply text-base font-semibold;
+  }
+
+  button:not(:disabled),
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  input[type="checkbox"] {
+    @apply size-5 shrink-0;
+    accent-color: var(--accent);
   }
 
   summary {
-    @apply cursor-pointer select-none;
+    @apply relative cursor-pointer select-none;
+  }
+
+  summary::after {
+    content: "";
+    position: absolute;
+    inset: -10px 0;
   }
 
   progress {
@@ -102,7 +122,7 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-line bg-surface px-3 py-1.5 text-sm font-medium text-fg transition-colors hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-line-strong bg-surface px-4 py-2 font-medium text-fg transition-colors hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .btn-primary {
@@ -113,16 +133,20 @@
     @apply border-transparent bg-danger text-accent-fg hover:bg-danger-hover;
   }
 
+  .nav-pill {
+    @apply inline-flex min-h-11 items-center rounded-md px-3 font-medium transition-colors;
+  }
+
   .input {
-    @apply w-full rounded-md border border-line bg-surface px-2.5 py-1.5 text-sm text-fg placeholder:text-fg-muted disabled:opacity-60;
+    @apply min-h-11 w-full rounded-md border border-line-strong bg-surface px-3 py-2 text-fg placeholder:text-fg-muted disabled:opacity-60;
   }
 
   .label {
-    @apply mb-1 block text-xs font-medium text-fg-muted;
+    @apply mb-1 block text-sm font-medium text-fg-muted;
   }
 
   .hint {
-    @apply text-xs text-fg-muted;
+    @apply text-sm text-fg-muted;
   }
 
   .badge {
@@ -146,7 +170,7 @@
   }
 
   .notice {
-    @apply rounded-md border border-line bg-surface-muted px-3 py-2 text-sm;
+    @apply rounded-md border border-line bg-surface-muted px-3 py-2;
   }
 
   .notice-danger {
@@ -162,6 +186,6 @@
   }
 
   .checkbox-row {
-    @apply flex items-center gap-2 text-sm;
+    @apply flex min-h-11 items-center gap-3;
   }
 }

@@ -66,7 +66,7 @@ export function TokenCounter({ text }: TokenCounterProps) {
 
   const stale = count.text !== text;
   return (
-    <p className="flex flex-wrap items-center gap-2 text-xs" aria-live="polite">
+    <p className="flex flex-wrap items-center gap-2 text-sm" aria-live="polite">
       <span className={`badge tabular-nums ${toneOf(count.tokens)} ${stale ? "opacity-60" : ""}`}>
         {count.tokens} / {WHISPER_PROMPT_TOKEN_LIMIT} Whisper tokens
       </span>

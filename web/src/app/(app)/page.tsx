@@ -10,9 +10,9 @@ export const dynamic = "force-dynamic";
 
 function RecordingRow({ recording }: { recording: RecordingSummary }) {
   return (
-    <li className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3">
+    <li className="relative flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 transition-colors hover:bg-surface-muted">
       <div className="min-w-0 flex-1 basis-64">
-        <Link href={`/r/${recording.id}`} className="link font-medium">
+        <Link href={`/r/${recording.id}`} className="link font-medium after:absolute after:inset-0">
           {recording.title}
         </Link>
         <p className="hint break-all">
@@ -55,7 +55,7 @@ export default async function RecordingsPage() {
         <p className="card text-fg-muted">No recordings yet. Upload the first one.</p>
       )}
       {recordings.ok && recordings.data.length > 0 && (
-        <ul className="card divide-y divide-line p-0">
+        <ul className="card divide-y divide-line overflow-hidden p-0">
           {recordings.data.map((recording) => (
             <RecordingRow key={recording.id} recording={recording} />
           ))}

@@ -149,7 +149,7 @@ export function PendingJobCard({ recordingId, marker, onChanged }: PendingJobCar
             </p>
           </div>
         )}
-        {pollError && !unknownToRunpod && <p className="text-xs text-danger">Status check failed: {pollError}</p>}
+        {pollError && !unknownToRunpod && <p className="text-sm text-danger">Status check failed: {pollError}</p>}
       </div>
 
       {stopped && (
@@ -158,7 +158,7 @@ export function PendingJobCard({ recordingId, marker, onChanged }: PendingJobCar
         </p>
       )}
       {actionError && (
-        <p role="alert" className="text-xs text-danger">
+        <p role="alert" className="text-sm text-danger">
           {actionError}
         </p>
       )}

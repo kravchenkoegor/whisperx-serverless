@@ -18,7 +18,7 @@ function yesNo(value: boolean | null | undefined): string {
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs text-fg-muted">{label}</dt>
+      <dt className="hint">{label}</dt>
       <dd className="font-medium">{value}</dd>
     </div>
   );
@@ -33,7 +33,7 @@ function Counts({ label, counts }: { label: string; counts: Record<string, numbe
 function PassTimings({ passes }: { passes: NonNullable<JobDocument["passes"]> }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[32rem] text-left text-xs">
+      <table className="w-full min-w-[32rem] text-left text-sm">
         <caption className="sr-only">Per-pass stage timings</caption>
         <thead className="text-fg-muted">
           <tr>
@@ -109,7 +109,7 @@ export function JobCard({ job }: JobCardProps) {
       {job.passes && job.passes.length > 0 && <PassTimings passes={job.passes} />}
 
       {otherTimings.length > 0 && (
-        <p className="text-xs text-fg-muted">
+        <p className="hint">
           {otherTimings.map(([stage, value]) => `${stage} ${seconds(value)}`).join(" · ")}
         </p>
       )}

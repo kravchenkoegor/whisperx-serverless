@@ -17,7 +17,7 @@ export default function DemoPage() {
     <div className="space-y-8">
       <header className="space-y-3">
         <h1>Mixed Russian and English meeting, one timeline</h1>
-        <p className="max-w-3xl text-fg-muted">
+        <p className="max-w-prose text-fg-muted">
           This is a read-only sample of what the control panel shows for a finished recording. Nothing here talks to
           storage or to a GPU: the transcripts below come from a short synthetic meeting that also serves as the
           regression fixture of the merge step.
@@ -66,7 +66,7 @@ export default function DemoPage() {
 
       <section aria-labelledby="sample-job-heading" className="space-y-3">
         <h2 id="sample-job-heading">Sample job card</h2>
-        <p className="max-w-3xl text-fg-muted">
+        <p className="max-w-prose text-fg-muted">
           Every job on RunPod Serverless ends by writing a status document next to the transcripts. The merge
           statistics below are the real ones for this sample; the timings and the GPU are illustrative.
         </p>

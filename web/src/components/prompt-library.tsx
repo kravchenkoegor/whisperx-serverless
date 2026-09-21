@@ -105,7 +105,7 @@ export function PromptLibrary({ initialPrompts }: PromptLibraryProps) {
           New prompt
         </button>
         {prompts.length === 0 && <p className="hint">The library is empty.</p>}
-        <ul className="space-y-1">
+        <ul className="space-y-2">
           {prompts.map((prompt) => {
             const selected = editor !== null && !editor.isNew && editor.name === prompt.name;
             return (
@@ -118,7 +118,7 @@ export function PromptLibrary({ initialPrompts }: PromptLibraryProps) {
                     selected ? "border-accent bg-accent-soft" : "border-line bg-surface hover:bg-surface-muted"
                   }`}
                 >
-                  <span className="block break-all font-mono text-xs font-semibold">{prompt.name}</span>
+                  <span className="block break-all font-mono text-sm font-semibold">{prompt.name}</span>
                   <span className="hint">
                     {formatBytes(prompt.size)} · {formatUtc(prompt.updatedAt)}
                   </span>
@@ -160,7 +160,7 @@ export function PromptLibrary({ initialPrompts }: PromptLibraryProps) {
               </label>
               <textarea
                 id="prompt-text"
-                className="input min-h-56 font-mono text-xs leading-relaxed"
+                className="input min-h-56 font-mono leading-relaxed"
                 disabled={editor.loading}
                 placeholder={editor.loading ? "Loading…" : "Write a few sentences the way the speakers talk."}
                 value={editor.text}
@@ -173,7 +173,7 @@ export function PromptLibrary({ initialPrompts }: PromptLibraryProps) {
                 </span>
               </div>
             </div>
-            <ul className="notice list-disc space-y-1 pl-6 text-xs">
+            <ul className="notice list-disc space-y-1 pl-6 text-sm">
               <li>
                 faster-whisper keeps only the <strong>last {WHISPER_PROMPT_TOKEN_LIMIT} tokens</strong> of the prompt
                 and silently drops the beginning. Russian costs about 1.5–1.7× more tokens than English.

@@ -16,7 +16,7 @@ export function NavLink({ href, label, matchPrefixes = [] }: NavLinkProps) {
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className={`rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors ${
+      className={`nav-pill ${
         active ? "bg-accent-soft text-accent" : "text-fg-muted hover:bg-surface-muted hover:text-fg"
       }`}
     >

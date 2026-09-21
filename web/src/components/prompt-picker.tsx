@@ -76,7 +76,7 @@ export function PromptPicker({ id, label, value, onChange, promptNames, disabled
         <div className="mt-2">
           <textarea
             aria-label={`${label} text`}
-            className="input min-h-24 font-mono text-xs"
+            className="input min-h-24 font-mono"
             value={value.text}
             readOnly={value.mode === "library"}
             disabled={disabled}
@@ -90,7 +90,7 @@ export function PromptPicker({ id, label, value, onChange, promptNames, disabled
         </div>
       )}
       {loadError && (
-        <p role="alert" className="mt-1 text-xs text-danger">
+        <p role="alert" className="mt-1 text-sm text-danger">
           Could not load the prompt: {loadError}
         </p>
       )}

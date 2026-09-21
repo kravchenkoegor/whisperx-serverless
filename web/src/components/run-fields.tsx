@@ -128,7 +128,7 @@ export function RunFields({ idPrefix, state, onChange, promptNames, outputs, dis
                 onChange={(event) => patch({ maxSpeakers: event.target.value })}
               />
             </div>
-            <label className="checkbox-row pb-1.5">
+            <label className="checkbox-row">
               <input
                 type="checkbox"
                 checked={state.reuseDiarization}

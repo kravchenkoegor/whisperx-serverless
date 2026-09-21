@@ -21,10 +21,13 @@ const KIND_LABELS: Record<FileKind, string> = {
 export function FileList({ files }: FileListProps) {
   if (files.length === 0) return <p className="text-fg-muted">No files.</p>;
   return (
-    <ul className="card divide-y divide-line p-0">
+    <ul className="card divide-y divide-line overflow-hidden p-0">
       {files.map((file) => (
-        <li key={file.key} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2">
-          <a href={fileUrl(file.key, true)} className="link break-all font-mono text-xs">
+        <li
+          key={file.key}
+          className="relative flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 transition-colors hover:bg-surface-muted"
+        >
+          <a href={fileUrl(file.key, true)} className="link break-all font-mono text-sm after:absolute after:inset-0">
             {file.name}
           </a>
           <span className="hint">{KIND_LABELS[file.kind]}</span>

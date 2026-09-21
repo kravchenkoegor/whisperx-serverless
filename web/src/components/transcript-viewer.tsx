@@ -43,7 +43,7 @@ export function TranscriptViewer({ tabs, emptyMessage = "No transcripts yet." }:
 
   return (
     <div className="card p-0">
-      <div role="tablist" aria-label="Transcripts" className="flex flex-wrap gap-1 border-b border-line p-2">
+      <div role="tablist" aria-label="Transcripts" className="flex flex-wrap gap-2 border-b border-line p-2">
         {tabs.map((tab) => {
           const selected = tab.id === active.id;
           return (
@@ -55,7 +55,7 @@ export function TranscriptViewer({ tabs, emptyMessage = "No transcripts yet." }:
               aria-selected={selected}
               aria-controls={panelId}
               onClick={() => setSelectedId(tab.id)}
-              className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
+              className={`nav-pill ${
                 selected ? "bg-accent-soft text-accent" : "text-fg-muted hover:bg-surface-muted hover:text-fg"
               }`}
             >
@@ -74,7 +74,7 @@ export function TranscriptViewer({ tabs, emptyMessage = "No transcripts yet." }:
         {text !== null && (
           <pre
             tabIndex={0}
-            className="max-h-[70vh] overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-xs leading-relaxed"
+            className="max-h-[70vh] overflow-auto whitespace-pre-wrap break-words p-4 font-mono leading-relaxed"
           >
             {text || "This file is empty."}
           </pre>
